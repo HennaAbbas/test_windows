@@ -2,12 +2,18 @@ version: '2.1'
 orbs:
   win: circleci/windows@5.0
 jobs:
-  build:
+  windows-test-cusotmer-image:
     executor: win/server-2022
     steps:
       - run: nvm install 16
+  windows-test-orb-image:
+    executor:
+      name: win/default
+    steps:
+      - run: nvm install 16      
     
 workflows:
   my-workflow:
     jobs:
-      - build
+      - windows-test-cusotmer-image
+      - windows-test-orb-image
