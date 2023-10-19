@@ -3,8 +3,8 @@ orbs:
   win: circleci/windows@5.0
 jobs:
   build:
-    executor:
-      name: win/default
+    machine:
+      image: windows-server-2022-gui:2023.09.1
     steps:
       - run: nvm install 16
     
