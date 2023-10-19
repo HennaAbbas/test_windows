@@ -6,19 +6,7 @@ jobs:
     executor:
       name: win/default
     steps:
-      - checkout
-      - run: Write-Host 'Hello, Windows'
-      - run: 
-          name: Setup VCPKG
-          command: |
-            git clone https://github.com/microsoft/vcpkg
-            .\vcpkg\bootstrap-vcpkg.bat
-          shell: powershell
-      - run: 
-          name: VCPKG integrate
-          command: .\vcpkg\vcpkg integrate install
-          shell: powershell      
-workflows:
+      - run: nvm install 16
   my-workflow:
     jobs:
       - build
